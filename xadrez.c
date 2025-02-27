@@ -1,8 +1,34 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// Funções recursivas para movimentação das peças
+void moverBispo(int mov) {
+    if (mov == 0) return;
+    printf("Cima, Direita\n");
+    moverBispo(mov - 1);
+}
+
+void moverTorre(int mov) {
+    if (mov == 0) return;
+    printf("Direita\n");
+    moverTorre(mov - 1);
+}
+
+void moverRainha(int mov) {
+    if (mov == 0) return;
+    printf("Esquerda\n");
+    moverRainha(mov - 1);
+}
+
+// Função para movimentação do Cavalo com loops aninhados
+void moverCavalo(int mov1, int mov2) {
+    for (int i = 0; i < mov1; i++) {
+        for (int j = 0; j < mov2; j++) {
+            if (i == 1 && j == 0) continue; // Exemplo de controle de fluxo
+            printf("Cima\n");
+        }
+        printf("Direita\n");
+    }
+}
 
 int main() {
     // Nível Novato - Movimentação das Peças
@@ -12,38 +38,21 @@ int main() {
 
     // Implementação de Movimentação do Bispo
     printf("Movimentação do Bispo:\n");
-    for (int i = 0; i < BISPO_MOV; i++) {
-        printf("Cima, Direita\n");
-    }
+    moverBispo(BISPO_MOV);
 
     // Implementação de Movimentação da Torre
-    printf("Movimentação da Torre:\n");
-    int i = 0;
-    while (i < TORRE_MOV) {
-        printf("Direita\n");
-        i++;
-    }
+    printf("\nMovimentação da Torre:\n");
+    moverTorre(TORRE_MOV);
 
     // Implementação de Movimentação da Rainha
-    printf("Movimentação da Rainha:\n");
-    i = 0;
-    do {
-        printf("Esquerda\n");
-        i++;
-    } while (i < RAINHA_MOV);
+    printf("\nMovimentação da Rainha:\n");
+    moverRainha(RAINHA_MOV);
 
     // Nível Aventureiro - Movimentação do Cavalo
     printf("\nMovimentação do Cavalo:\n");
     const int CAVALO_MOV1 = 2;
     const int CAVALO_MOV2 = 1;
-    for (int j = 0; j < CAVALO_MOV1; j++) {
-        printf("Baixo\n");
-    }
-    int k = 0;
-    while (k < CAVALO_MOV2) {
-        printf("Esquerda\n");
-        k++;
-    }
+    moverCavalo(CAVALO_MOV1, CAVALO_MOV2);
 
     return 0;
 }
