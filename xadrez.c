@@ -32,5 +32,18 @@ int main() {
         i++;
     } while (i < RAINHA_MOV);
 
+    // Nível Aventureiro - Movimentação do Cavalo
+    printf("\nMovimentação do Cavalo:\n");
+    const int CAVALO_MOV1 = 2;
+    const int CAVALO_MOV2 = 1;
+    for (int j = 0; j < CAVALO_MOV1; j++) {
+        printf("Baixo\n");
+    }
+    int k = 0;
+    while (k < CAVALO_MOV2) {
+        printf("Esquerda\n");
+        k++;
+    }
+
     return 0;
 }
